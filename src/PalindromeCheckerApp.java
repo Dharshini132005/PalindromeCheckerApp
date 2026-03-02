@@ -3,16 +3,23 @@ public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
         System.out.println("Welcome to the Palindrome Checker Management System");
-        System.out.println("Version : 12.0");
+        System.out.println("Version : 13.0");
 
         String input = "level";
 
         PalindromeStrategy strategy = new StackStrategy();
 
+        long startTime = System.nanoTime();
+
         boolean isPalindrome = strategy.check(input);
+
+        long endTime = System.nanoTime();
+
+        long executionTime = endTime - startTime;
 
         System.out.println("Input : " + input);
         System.out.println("Is Palindrome? : " + isPalindrome);
+        System.out.println("Execution Time : " + executionTime + " ns");
         System.out.println("Program execution completed.");
     }
 }
