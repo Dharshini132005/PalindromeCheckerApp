@@ -1,3 +1,5 @@
+import java.util.Queue;
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class PalindromeCheckerApp {
@@ -5,33 +7,29 @@ public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
         System.out.println("Welcome to the Palindrome Checker Management System");
-        System.out.println("Version : 5.0");
+        System.out.println("Version : 6.0");
 
-        // Hardcoded input
-        String input = "noon";
+        String input = "civic";
 
-        // Create stack
+        Queue<Character> queue = new LinkedList<>();
         Stack<Character> stack = new Stack<>();
 
-        // Push characters into stack
         for (char c : input.toCharArray()) {
+            queue.add(c);
             stack.push(c);
         }
 
         boolean isPalindrome = true;
 
-        // Pop and compare
-        for (char c : input.toCharArray()) {
-            if (c != stack.pop()) {
+        while (!queue.isEmpty()) {
+            if (queue.remove() != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
         }
 
-        // Display result
         System.out.println("Input : " + input);
         System.out.println("Is Palindrome? : " + isPalindrome);
-
         System.out.println("Program execution completed.");
     }
 }
